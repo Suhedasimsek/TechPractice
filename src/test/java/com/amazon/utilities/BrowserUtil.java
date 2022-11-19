@@ -33,6 +33,14 @@ public class BrowserUtil {
         }
     }
 
+    /*
+     * get the text of element
+     * @param WebElement
+     */
+
+    public static String getTextOfElement(WebElement element){
+        return element.getText();
+    }
 
 
 }
