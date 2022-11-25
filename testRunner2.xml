@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="CraftLoginTests" verbose="1">
+    <!-- define the testname -->
+    <test name="PositiveAndNegativeLoginTests">
+
+
+        <classes>
+            <class name="com.amazon.tests.day8.FindElements"></class>
+        </classes>
+
+
+
+    </test>
+</suite>

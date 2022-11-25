@@ -1,0 +1,17 @@
+<!-- define this xml page as testNG xml -->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!-- define the suitname -->
+<suite name="CraftLoginTests" verbose="1">
+    <!-- define the testname -->
+    <test name="PositiveAndNegativeLoginTests">
+        
+        
+        <packages>
+            <package name="com.amazon.tests.day0"></package>
+            <package name="com.amazon.tests.day1"></package>
+        </packages>
+        
+        
+        
+    </test>
+</suite>

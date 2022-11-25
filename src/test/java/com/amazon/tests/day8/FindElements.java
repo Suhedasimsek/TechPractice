@@ -17,7 +17,7 @@ public class FindElements {
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://www.krafttechexlab.com/components/listgroup");
         List<WebElement> elements = driver.findElements(By.cssSelector(".form-check-input.me-1"));
-
+        elements.get(0).click();
         System.out.println(elements.size());
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
