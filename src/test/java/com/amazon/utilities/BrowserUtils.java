@@ -1,5 +1,6 @@
 package com.amazon.utilities;
 
+import com.amazon.Logger.Log;
 import org.openqa.selenium.*;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.interactions.Actions;
@@ -259,6 +260,7 @@ public class BrowserUtils {
     public static void clickWithJS(WebElement element) {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
+        Log.info(element + " clicked");
     }
 
 
@@ -397,5 +399,50 @@ public class BrowserUtils {
      */
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    /*
+     * @param WebElement
+     * @void
+     * @Eren Ç.
+     */
+    public static void clickElement(WebElement element){
+        try {
+            element.click();
+            Log.info(element + " is clicked");
+        }catch (Exception e){
+            Log.info(element + " is not clicked since " + e.getMessage());
+        }
+    }
+
+    /*
+     * @param WebElement
+     * @return String
+     * @Eren Ç.
+     */
+    public static String getText(WebElement element){
+        String str = null;
+        try {
+            str = element.getText();
+            Log.info("text of element is " + str);
+            return str;
+        }catch (Exception e){
+            Log.info("text was not able to got since " + e.getMessage());
+        }
+        return null;
+    }
+
+    /*
+     * @param WebElement, String
+     * @void
+     * @Eren Ç.
+     */
+    public static void sendKeys(WebElement element, String str){
+        try {
+            element.sendKeys(str);
+            Log.info(str + " has been sent");
+        }catch (Exception e){
+            Log.info("message was not able to send due to " + e.getMessage());
+        }
     }
 }

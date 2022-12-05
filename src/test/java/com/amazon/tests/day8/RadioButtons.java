@@ -1,5 +1,8 @@
 package com.amazon.tests.day8;
 
+import com.amazon.utilities.AssertUtils;
+import com.amazon.utilities.BrowserUtils;
+import com.amazon.utilities.Driver;
 import com.amazon.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,14 +41,17 @@ public class RadioButtons {
     }
     @Test
     public void test4() throws InterruptedException {
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
+        //WebDriver driver = WebDriverFactory.getDriver("chrome");
+        WebDriver driver = Driver.get();
         driver.get("https://www.krafttechexlab.com/index");
-        WebElement element = driver.findElement(By.xpath("(//i[@class='bi bi-chevron-down ms-auto'])[2]"));
-        element.click();
+        WebElement xButton = driver.findElement(By.xpath("(//i[@class='bi bi-chevron-down ms-auto'])[2]"));
+        //element.click();
+        BrowserUtils.clickWithJS(xButton);
         WebElement radioButton = driver.findElement(By.xpath("(//span[.='Radio'])[1]/../i"));
-        Thread.sleep(3000);
-        Assert.assertTrue(radioButton.isDisplayed());
-        driver.quit();
+        //Assert.assertTrue(radioButton.isDisplayed());
+        //driver.quit();
+        AssertUtils.assertTrue(radioButton.isDisplayed());
+        Driver.closeDriver();
     }
 
 
